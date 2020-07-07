@@ -1,0 +1,26 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- slider -->
+{% include 'store/partials/_slider.html' %}
+<div style="margin-top: 20px;">
+    <h1>Feature <span style="color: #ec3d3d;"><strong>Products</strong></span></h1>
+    <hr>
+</div>
+<div class="row mt-4">
+    {% for product in products %}
+    <div class="col-lg-4">
+        <img src="{{ product.imageURL }}" alt="" class="thumbnail">
+        <div class="box-element product">
+            <h6><strong>{{ product.name }}</strong></h6>
+            <hr>
+            <button class="btn btn-outline-primary btn-sm add-btn">Add to Cart</button>
+            <a href="#" class="btn btn-outline-success btn-sm">View</a>
+            <h4 style="float: right;">${{ product.price|floatformat:2 }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
